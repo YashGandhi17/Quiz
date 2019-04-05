@@ -26,41 +26,14 @@ public class Questions{
         this.answer=answer;
     }
     public static void main(String[] args) {
-       Scanner s=new Scanner(System.in);
-       List<Questions> QuestionList=new ArrayList<Questions>();
-       int ans;
-       int Score;
       try{
-            Connection c=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Vraj\\Documents\\NetBeansProjects\\Quiz\\src\\quiz\\Quiz.accdb");
+            
+            Connection c=DriverManager.getConnection("jdbc:ucanaccess://D:\\yash\\Atom\\Quiz\\Quiz-master\\Quiz-master\\src\\quiz\\Quiz.accdb");
             Statement st=c.createStatement();
             ResultSet rs=st.executeQuery("select * from questions order by rand() limit 10");
         }
         catch(SQLException ee){System.out.println(ee);}
 
-        while(rs.next()){
-            QuestionList.add(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7));
-        }
-        for(Questions Q:QuestionList){
-          System.out.println(Q.question);
-          System.out.println(Q.option1);
-          System.out.println(Q.option2);
-          System.out.println(Q.option3);
-          System.out.println(Q.option4);
-
-          System.out.println("Enter your answer in 1/2/3/4");
-          ans=s.nextInt();
-
-          if(ans==Q.answer)
-          {
-            System.out.println("correct answer");
-            Score++;
-          }
-          else {
-            System.out.println("Ooops!Wrong answer");
-          }
-
-        }
-        System.out.println("Your Final Score Is:"+Score);
-
+       
     }
 }
