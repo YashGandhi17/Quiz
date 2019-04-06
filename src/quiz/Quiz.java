@@ -14,7 +14,7 @@ import java.awt.event.*;
 
 /**
  *
- * @author Yash
+ * @author Vraj,Yash
  */
 public class Quiz extends Applet implements ItemListener,ActionListener{
     Checkbox op1, op2, op3,op4;
@@ -51,6 +51,7 @@ public class Quiz extends Applet implements ItemListener,ActionListener{
             question.add(Qs);
         }
         c.close();
+
     }
     catch(SQLException ee){
         System.out.println(ee);
